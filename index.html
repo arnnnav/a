@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(to right, #1c92d2, #f2fcfe);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        .card {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+            padding: 30px;
+            text-align: center;
+            max-width: 700px;
+            width: 90%;
+            animation: float 3s ease-in-out infinite;
+            position: relative;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .card h1 {
+            font-family: 'Great Vibes', cursive;
+            color: #ff6f61;
+            font-size: 3.5em;
+            margin-bottom: 10px;
+        }
+        .card p {
+            color: #333;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        .card button {
+            background-color: #ff6f61;
+            color: #fff;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1.2em;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+        .card button:hover {
+            background-color: #e55a4e;
+        }
+        .confetti {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        .confetti-piece {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #ff6f61;
+            opacity: 0;
+            animation: confetti 5s linear infinite;
+        }
+        @keyframes confetti {
+            0%, 100% { transform: translateY(0); opacity: 0; }
+            10% { opacity: 1; }
+            50% { transform: translateY(500px) rotate(180deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Happy Birthday Love</h1>
+        <p>Dear Mahika,</p>
+        <p>You are the biggest blessing of my life. Every moment spent with you makes me happier. I miss you so much and I can't wait to see you, feel the comfort of your arms and the softness of your skin,the fragrance of your hair and the touch of your lips. I wish that you get all the success in the world. Trust me, you are worthy of great things, just believe in yourself my baby. You are my safe space. I love you to death.</p>
+        <button onclick="playVideo()">Click for a surprise!</button>
+        <div id="videoContainer" style="display:none; margin-top: 20px;">
+            <video width="100%" controls>
+                <source src="Mah.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="confetti"></div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const confettiContainer = document.querySelector('.confetti');
+            for (let i = 0; i < 100; i++) {
+                const confettiPiece = document.createElement('div');
+                confettiPiece.classList.add('confetti-piece');
+                confettiPiece.style.left = `${Math.random() * 100}%`;
+                confettiPiece.style.animationDelay = `${Math.random() * 5}s`;
+                confettiPiece.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+                confettiContainer.appendChild(confettiPiece);
+            }
+        });
+
+        function playVideo() {
+            document.getElementById('videoContainer').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
